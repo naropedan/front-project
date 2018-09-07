@@ -1,11 +1,3 @@
-import App from "./components/App.js";
-import {Provider} from 'react-redux';
-import store from "./store/index";
-import ReactDOM from "react-dom";
-import React from "react";
+import {JavaScriptFundamental} from "./JavaScriptfundamental/index.js"
 
-ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>
-    , document.getElementById("root"));
+console.log(JavaScriptFundamental.task_1.getAnswer());

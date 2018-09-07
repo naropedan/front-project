@@ -1,1 +1,0 @@
-export const ADD_COMMENT_DATA = 'ADD_COMMENT_DATA';
