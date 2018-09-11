@@ -1,3 +1,7 @@
-import {JavaScriptFundamental} from "./JavaScriptfundamental/index.js"
+'use strict';
 
-console.log(JavaScriptFundamental.task_1.getAnswer());
+import {JavaScriptFundamental} from "./JavaScriptfundamental/index.js";
+import {JavaScriptAsynchronus} from "./JavaScriptAsynchronus/index";
+
+console.log(JavaScriptFundamental.task_1.getTaskDetails());
+JavaScriptAsynchronus();
