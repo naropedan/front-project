@@ -1,12 +1,20 @@
-// const request = require("request");
-//
-// let url = "https://jsonplaceholder.typicode.com/posts";
-//
-// request(url, function (error, response, body) {
-//     if(error){
-//         console.log("Error mathafacka");
-//     }
-//     else {
-//         console.log(response);
-//     }
-// });
+export function createCustomDomElement(newElementName = null,newElementClassName = null,newElementTextContent = null, newElementId = null){
+    if(arguments.length === 0){
+        alert("Please add new element properties");
+    }
+    let newDomElement = document.createElement(newElementName);
+    if(newElementClassName !== null){
+        newDomElement.className = newElementClassName;
+    }
+    if(newElementTextContent !== null){
+        newDomElement.textContent = newElementTextContent;
+    }
+    if(newElementId !== null){
+        newDomElement.id = newElementId;
+    }
+    return newDomElement;
+}
+
+export function innerById(idName){
+    return document.getElementById(idName)
+}
