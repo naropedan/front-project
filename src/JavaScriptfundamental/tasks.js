@@ -24,6 +24,7 @@ tasks[1] = {
                 }
             }
         }
+        console.log("************************************************************************************************************************");
         console.log(this.description);
         console.log("obj_1", obj_1);
         console.log("obj_2", obj_2);
@@ -33,9 +34,63 @@ tasks[1] = {
 };
 
 tasks[2] = {
-    description: "Write a JavaScript program to converts a comma-separated values (CSV) string to a 2D array.",
+    description: "Write a JavaScript program to target a given value in a nested JSON object, based on the given key.",
     solution: function() {
-        return null;
+        console.log(this.description);
+        function get() {
+            let url = "https://jsonplaceholder.typicode.com/users";
+            // Return a new promise.
+            return new Promise(function(resolve, reject) {
+                // Do the usual XHR stuff
+                let req = new XMLHttpRequest();
+                req.open('GET', url);
+
+                req.onload = function() {
+                    // This is called even on 404 etc
+                    // so check the status
+                    if (req.status == 200) {
+                        // Resolve the promise with the response text
+                        resolve(req.response);
+                    }
+                    else {
+                        // Otherwise reject with the status text
+                        // which will hopefully be a meaningful error
+                        reject(Error(req.statusText));
+                    }
+                };
+
+                // Handle network errors
+                req.onerror = function() {
+                    reject(Error("Network Error"));
+                };
+
+                // Make the request
+                req.send();
+            });
+        }
+
+        get().then(function(data){
+           let ourData = JSON.parse(data);
+           console.log(ourData);
+           for(let i in ourData){
+               const dig = (obj, target) =>
+                   target in obj
+                       ? obj[target]
+                       : Object.values(obj[i]).reduce((acc, val) => {
+                           if (acc !== undefined) return acc;
+                           if (typeof val === 'object') return dig(val, target);
+                       }, undefined);
+
+               console.log(dig(ourData, 'geo'));
+           }
+            console.log("************************************************************************************************************************");
+        });
+    }
+};
+tasks[3] = {
+    description: "Write a JavaScript program to target a given value in a nested JSON object, based on the given key.",
+    solution: function() {
+        console.log("qweqwe");
     }
 };
 
